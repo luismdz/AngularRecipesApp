@@ -1,0 +1,111 @@
+<div class="container fadeIn">
+  <div class="form-container">
+    <h4 class="display-4">{{ editMode ? 'Editing Recipe' : 'New Recipe' }}</h4>
+    <form [formGroup]="recipeForm"
+      (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text"
+          id="name"
+          class="form-control"
+          formControlName="name">
+      </div>
+
+      <div class="form-group">
+        <label for="imagePath">Image URL</label>
+        <input type="text"
+          id="imagePath"
+          class="form-control"
+          #imagePath
+          formControlName="imagePath">
+      </div>
+
+      <div class="mb-3"
+        *ngIf="recipeForm.get('imagePath').value">
+        <img [src]="imagePath.value"
+          [alt]="recipeForm.get('name').value"
+          class="img-fluid">
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description"
+          rows="5"
+          class="form-control"
+          formControlName="description">
+        </textarea>
+      </div>
+
+      <table class="table border border-silver"
+        *ngIf="ingredients.length > 0; else noIngredient">
+        <thead class="table-dark">
+          <tr>
+            <th>Ingredient</th>
+            <th>Amount</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody formArrayName="ingredients">
+          <tr *ngFor="let control of ingredients.controls; let i = index"
+            [formGroupName]="i">
+            <td class="grow">
+              <input type="text"
+                class="form-control"
+                formControlName="name">
+            </td>
+            <td>
+              <input type="number"
+                min="0"
+                class="form-control"
+                formControlName="amount">
+            </td>
+            <td>
+              <button type="button"
+                class="btn btn-danger"
+                (click)="onDeleteIngredient(i)">
+                <svg width="1em"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  class="bi bi-trash"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                  <path fill-rule="evenodd"
+                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                </svg>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ng-template #noIngredient>
+        <p class="mb-4">
+          No ingredients added.
+        </p>
+      </ng-template>
+
+      <button type="button"
+        class="btn btn-success d-block"
+        (click)="onAddIngredient()">
+        Add New Ingredient
+      </button>
+
+      <div class="act-btn">
+        <button type="submit"
+          class="btn btn-outline-info"
+          [disabled]="!recipeForm.valid">
+          Save
+        </button>
+        <button type="button"
+          class="btn btn-outline-danger"
+          (click)="onCancel()">
+          Cancel
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+/* @font-face {
+  font-family: 'SF Pro Display';
+  src: url('/assets/vendor/fonts/SF-Pro-Display/SF-Pro-Display-Regular.otf');
+} */
+
+*,
+body,
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  overflow-x: hidden;
+}
+
+.fadeIn {
+  animation: fadeIn ease-in .2s;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

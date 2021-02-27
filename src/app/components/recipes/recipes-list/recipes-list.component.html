@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row mb-4">
+    <div class="col md-12">
+      <button class="btn btn-info"
+        (click)="onNewRecipe()">
+        New Recipe
+      </button>
+      <!-- <button class="btn btn-success ml-3"
+        (click)="storeRecipes()">
+        Store Data
+      </button> -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <app-recipe-item [recipe]="recipe"
+        *ngFor="let recipe of recipes | async; let i = index"></app-recipe-item>
+    </div>
+  </div>
+</div>

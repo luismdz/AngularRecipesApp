@@ -1,0 +1,56 @@
+<div class="row mt-5">
+  <div class="col-md-12">
+    <form [formGroup]="shoppingListForm"
+      (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-sm-5 form-group">
+          <label for="name">Name</label>
+          <input type="text"
+            id="name"
+            class="form-control"
+            formControlName="name"
+            [class.is-invalid]="
+                  shoppingListForm.get('name').invalid &&
+                  shoppingListForm.get('name').touched">
+
+          <small class="text-form text-danger"
+            *ngIf="shoppingListForm.get('name').invalid &&
+                  shoppingListForm.get('name').touched">
+            Please enter a valid name!
+          </small>
+
+        </div>
+        <div class="col-sm-2 form-group">
+          <label for="amount">Amount</label>
+          <input type="number"
+            class="form-control"
+            id="amount"
+            min="0"
+            formControlName="amount">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5 d-flex">
+          <button type="submit"
+            class="btn btn-info"
+            [disabled]="!shoppingListForm.valid">
+            {{ editMode ? 'Update' : 'Add'}}
+          </button>
+
+          <button type="button"
+            class="btn btn-danger"
+            *ngIf="editMode"
+            (click)="onDelete()">
+            Delete
+          </button>
+
+          <button type="button"
+            class="btn btn-secondary"
+            (click)="onClear()">
+            Clear
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

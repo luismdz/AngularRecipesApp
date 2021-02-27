@@ -1,0 +1,28 @@
+/* .recipe-text-content {
+  min-width: 250px;
+} */
+
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipe-text-content {
+  text-align: left;
+  margin-right: 10px;
+}
+
+.list-group-item-heading {
+  margin-bottom: 1.25rem;
+}
+
+img {
+  max-height: 80px;
+}
+
+@media(max-width:475px) {
+  img {
+    display: none;
+  }
+}

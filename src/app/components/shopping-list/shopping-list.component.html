@@ -1,0 +1,17 @@
+<div class="container fadeIn">
+  <app-shopping-edit></app-shopping-edit>
+  <hr />
+  <ul class="list-group mb-3">
+    <a class="list-group-item btn btn-light text-left"
+      *ngFor="let ingredient of ingredients; let i = index"
+      (click)="onEditItem(i)">
+      <div class="text-content">
+        <p>{{ ingredient.name }}</p>
+        <small>Quantity: {{ ingredient.amount }}</small>
+      </div>
+    </a>
+  </ul>
+  <small *ngIf="totalIngredients > 0">
+    <strong>Total of ingredients: </strong> {{ totalIngredients }}
+  </small>
+</div>

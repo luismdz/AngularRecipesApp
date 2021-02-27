@@ -1,0 +1,9 @@
+.dropdown-menu a {
+  cursor: pointer;
+}
+
+.recipe-img img {
+  filter: drop-shadow(2px 2px 3px #000000);
+  -webkit-filter: drop-shadow(2px 2px 3px #000000);
+  -moz-filter: drop-shadow(2px 2px 3px #000000);
+}

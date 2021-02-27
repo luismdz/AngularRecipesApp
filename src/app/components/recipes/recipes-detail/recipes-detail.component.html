@@ -1,0 +1,67 @@
+<div class="container fadeIn"
+  *ngIf="!loading else loader">
+  <div class="recipe-img">
+    <img [src]="recipe.imagePath"
+      [alt]="recipe.name"
+      class="img-fluid">
+  </div>
+  <div class="recipe-info mt-4">
+    <h1>{{ recipe.name }}</h1>
+
+    <div class="btn-group mt-3 mb-4"
+      role="group">
+      <button class="btn btn-dark dropdown-toggle"
+        data-toggle="dropdown">
+        Manage Recipes
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item"
+          (click)="onAddShoppingList()">
+          To Shopping List
+        </a>
+        <a (click)="onEditRecipe()"
+          class="dropdown-item">
+          Edit Recipe
+        </a>
+        <a class="dropdown-item"
+          (click)="onDeleteRecipe()">
+          Delete Recipe
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <strong>Description: </strong>
+      <p>{{ recipe.description }}</p>
+    </div>
+
+    <div class="mt-3"
+      *ngIf="recipe.ingredients?.length > 0">
+      <strong>Ingredients:</strong>
+      <table class="table table-bordered mt-3">
+        <thead class="thead-dark">
+          <tr>
+            <th>Ingredient</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ingredient of recipe.ingredients">
+            <td>{{ ingredient.name }}</td>
+            <td>{{ ingredient.amount }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+<ng-template #loader>
+  <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)"
+    size="default"
+    color="#fff"
+    type="ball-spin-clockwise"
+    [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+  </ngx-spinner>.
+</ng-template>

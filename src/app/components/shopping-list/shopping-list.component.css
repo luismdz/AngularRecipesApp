@@ -1,0 +1,13 @@
+.list-group-item {
+  border-radius: 0;
+  padding: 15px 20px;
+}
+
+.list-group-item .text-content {
+  line-height: .75;
+}
+
+.list-group-item .list-group-item p {
+  margin: 0;
+  padding: 0;
+}

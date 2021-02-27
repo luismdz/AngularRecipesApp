@@ -1,0 +1,52 @@
+.container {
+  width: 100%;
+}
+
+h4.display-4 {
+  font-size: 30px;
+  margin-bottom: 1.5rem;
+}
+
+.act-btn {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.act-btn button {
+  margin-right: 1rem;
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border-color: #dc3545;
+}
+
+.flex-row-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: .75rem;
+}
+
+.flex-row-container>div:first-child {
+  flex: 1;
+}
+
+.flex-row-container>div:nth-child(2) {
+  flex-basis: 20%;
+}
+
+.flex-row-container button {
+  align-self: flex-end;
+}
+
+table {
+  table-layout: auto;
+  width: 100%;
+}
+
+table td.grow {
+  width: 70%;
+}

@@ -1,0 +1,11 @@
+.container-fluid {
+  margin: 2rem auto;
+  min-height: 80vh;
+  position: relative;
+}
+
+@media(max-width:375px) {
+  .container-fluid {
+    padding: 0;
+  }
+}

@@ -1,0 +1,11 @@
+<a [routerLink]="[recipe.id]"
+  routerLinkActive='active'
+  class="list-group-item btn btn-light text-justify">
+  <div class="recipe-text-content">
+    <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+    <p>{{ recipe.description }}</p>
+  </div>
+
+  <img [src]="recipe.imagePath"
+    [alt]="recipe.name">
+</a>

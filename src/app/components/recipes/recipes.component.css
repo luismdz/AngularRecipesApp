@@ -1,0 +1,17 @@
+.recipe-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 3rem;
+}
+
+p {
+  text-align: center;
+}
+
+
+@media(max-width:970px) {
+  .recipe-container {
+    grid-template-columns: 1fr;
+  }
+
+}
